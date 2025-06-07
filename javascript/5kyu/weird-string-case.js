@@ -1,10 +1,21 @@
 function toWeirdCase(string){
+  let counter = 0
 
-  return string.split(" ").map((word,index) => {
-     return word.split("").map((char,index) => {
-       return index % 2 == 0 ? char.toUpperCase() : char.toLowerCase()
-     }).join("")
-  }).join(" ")
+  return string.split("").map((char,index) => {
+    if(char == " "){
+      counter = 0;
+      return char;
+    }
+    else if (counter % 2 == 0){
+      counter++
+      return char.toUpperCase();
+    }
+    else {
+      counter++
+      return char.toLowerCase();
+    }
+  }).join("")
+
 }
 
 /*
